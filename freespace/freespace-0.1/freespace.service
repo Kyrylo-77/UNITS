@@ -1,0 +1,13 @@
+[Unit]
+Description= The checker & logger for free space on mounted disks
+RequiresMountsFor=/var/log
+After=rsyslog.service
+[Service]
+ExecStart=/usr/local/freespace/freespace.sh
+Type=oneshot
+KillMode=process
+SyslogIdentifier=freespace
+SyslogFacility=local2
+Restart=on-failure
+[Install]
+WantedBy=multiuser.target

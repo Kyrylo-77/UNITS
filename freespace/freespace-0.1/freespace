@@ -1,0 +1,12 @@
+/var/log/freespace {
+  daily
+  missingok
+  rotate 2
+  compress
+  delaycompress
+  notifempty
+  create 644 root root
+  sharedscripts 
+  [ -f /var/run/freespace.pid ] && kill -HUP `cat /var/run/freespace.pid`
+  endscript
+}
